@@ -1,0 +1,144 @@
+ion-header {
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+    --background: transparent;
+    box-shadow: none;
+}
+
+ion-toolbar {
+    vertical-align: center;
+    --background: transparent;
+    color: #000;
+}
+
+ion-chip {
+    border: 0;
+}
+
+ion-content {
+    --background: #d7cbff !important;
+    position: absolute;
+}
+
+ion-card {
+    box-shadow: none;
+    padding: 0;
+    background-color: transparent;
+    margin: 0;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.card-desc {
+    // height: 35px;
+    margin: 0;
+    padding: 0px;
+    --background: transparent !important;
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    width: 100%;
+}
+
+.card-profile-pic {
+    border-radius: 2rem;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.card-profile-name {
+    font-size: xx-small;
+    padding: 0 5px;
+}
+
+.card-desc-item {
+    display: flex;
+    align-items: end;
+}
+.profile-item{
+    transform: translateX(-10px);
+    // margin-top: 5px;
+}
+.star-button {
+    margin-right: -10px;
+    margin-top: -20px;
+    align-items: center;
+}
+.star-button h6{
+    font-size:xx-small;
+    transform: translateY(10px);
+    font-weight:900;
+    color: #D90004 !important;
+
+}
+
+.rating-button {
+    background-color: #D900045d !important;
+    border-radius: 5rem;
+    padding: 4px !important;
+}
+
+.star {
+    font-size: small;
+    color: #D90004 !important;
+    // # yellow
+}
+
+.search-connects-toolbar,
+.search-connects-header {
+    border-radius: 0;
+}
+
+ion-searchbar {
+    --border-radius: 30px;
+    /* Adjust this value for the desired roundness */
+    --background: #fff;
+    overflow: hidden;
+    /* Optional: background color */
+}
+
+ion-searchbar .searchbar-input {
+    border-radius: 30px;
+    /* Round the input field itself */
+}
+
+.search-content {
+    position: relative;
+}
+
+.search-item-list {
+    background-color: #6030ff;
+}
+
+.search-item {
+    margin: 10px;
+    padding: 0px;
+    --background: #ffffff !important;
+    display: flex;
+    border-radius: 1rem;
+}
+
+ion-searchbar {
+    border-radius: 2rem !important;
+    overflow: hidden;
+}
+
+ion-label h2 {
+    color: #6030ff;
+}
+
+.connect-button {
+    height: 50%;
+    width: 40%;
+}
+
+.connect-button h6 {
+    color: #ffffff !important;
+    font-size: smaller;
+    font-weight: 500;
+}

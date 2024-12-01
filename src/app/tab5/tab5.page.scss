@@ -1,0 +1,45 @@
+ion-header{
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+}
+ion-toolbar{
+    vertical-align: center;
+    --background: #ffffff;
+    color: #000;
+}
+
+.profile-pic{
+    border-radius: 2rem;
+}
+ion-thumbnail{
+    margin-top: 20px;
+}
+.profile-item{
+    --background:#d7cbff ;
+}
+ion-list{
+    border-radius: 1rem !important;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+ion-item{
+    // display: flex;
+    // justify-content: center;
+    --background: #ffffff;
+    color: #313131;
+}
+ion-content{
+    --background: #d7cbff !important;
+}
+ion-card{
+    border-radius: 5rem;
+}
+.connects{
+    display: flex;
+}
+ion-item i{
+    padding: 0 10px;
+}
+// .logout-section{
+//     margin-bottom: 30px;
+// }

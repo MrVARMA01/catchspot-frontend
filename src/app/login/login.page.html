@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true" color="tertiary">
+  <div id="container">
+    <!-- [style.background-image]="'url(assets/backgrounds/bg_design_processed.png)'" -->
+    <div>
+      <div class="image">
+        <img src="./assets/icon/CatchSpot.png" alt="">
+      </div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title color="tertiary">Login </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item>
+            <ion-input label="Email" labelPlacement="stacked" placeholder="example@gmail.com"
+              [(ngModel)]="loginRequest.email"></ion-input>
+          </ion-item>
+          <br>
+          <ion-item>
+            <ion-input label="Password" labelPlacement="stacked" placeholder="1234"
+              [(ngModel)]="loginRequest.password"><ion-input-password-toggle
+                slot="end"></ion-input-password-toggle></ion-input>
+          </ion-item>
+          <br>
+          <ion-button class="login" color="tertiary" expand="full" shape="round" (click)="login()">LOGIN</ion-button>
+          <ion-button color="tertiary" fill="clear" expand="full" shape="round">REGISTER</ion-button>
+
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

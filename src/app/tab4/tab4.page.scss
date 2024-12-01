@@ -1,0 +1,25 @@
+ion-header {
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+    --background: transparent;
+    box-shadow: none;
+}
+
+ion-toolbar {
+    vertical-align: center;
+    --background: transparent;
+    color: #000;
+}
+ion-content {
+    --background: #d7cbff !important;
+}
+ion-card, ion-item{
+    border-radius: 1.5rem;
+    --background: #f9f9f9 !important;
+}
+.profile-pic{
+    border-radius: 2rem;
+}
+ion-label{
+    color: #000000 !important;
+}

@@ -1,0 +1,35 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <!-- <ion-button slot="start" fill="clear">
+        <img src="./assets/icon/D_processed.png" alt="" width="40px">
+      </ion-button> -->
+      <ion-title mode="ios">
+        <ion-chip color="tertiary">Chats</ion-chip>
+      </ion-title>
+      <ion-button fill="clear" slot="end" shape="round" routerLink="/scan">
+        <i class="fa-solid fa-qrcode fa-lg" slot="icon-only" style="color: #6030ff;"></i>
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+    <ion-card color="transparent" *ngFor="let user of users" (click)="chatRoom(user.userId)">
+      <ion-item class="profile-item">
+        <ion-thumbnail slot="start">
+            <ion-img class="profile-pic" *ngIf="user.profilePic" src="{{user.profilePic}}"></ion-img>
+            <ion-img class="profile-pic" *ngIf="!user.profilePic && user.gender === 'MALE'" src="./assets/profile pics/man_4140061.png"></ion-img>
+            <ion-img class="profile-pic" *ngIf="!user.profilePic && user.gender === 'FEMALE'" src="./assets/profile pics/woman_4140047.png"></ion-img>
+        </ion-thumbnail>
+        <ion-grid>
+          <ion-row>
+            <ion-label><b>{{user.firstName}} {{user.lastName}}</b></ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label color="medium">
+              <p>last caht...</p>
+            </ion-label>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+</ion-content>

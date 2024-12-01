@@ -1,0 +1,6 @@
+generate a content for my app
+im designing an app named Catchspot which is used to store all the user data at one place, post the images, videos in the catchspot so that public can view and rate the post, user can share the particular data which is added in the Catchspot by giving the access to the other users but they can't save, store, or screenshot the data. User and can remove the access to those users after some time so that they can't see those data anymore until this user gives access to them again and thats how user can share the data in the collection which means an album and the whole collection by giving access.
+so unique points of Catchspot is to store data as a collections and accessings.
+users can connect to other users by connect request. so thats how users have numer of connects which means like followers
+
+CatchSpot is also a good platform to store like user presentation works, resumes, art works and all kinds user works which are in the form of images and videos. so that user can present the work directly by giving access if needed in the office presentations or for official and professional uses.

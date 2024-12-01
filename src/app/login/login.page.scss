@@ -1,0 +1,32 @@
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 200px;
+    height: 100%;
+}
+.login{
+    color: white !important;
+}
+img{
+    width: 80px;
+    border-radius: 1rem;
+}
+.image{
+    text-align: center;
+    padding-bottom: 30px;
+}
+ion-card{
+    border-radius: 2rem;
+    background-color: #ffffff;
+}
+ion-card-title{
+    padding: 10px;
+}
+ ion-input{
+    background-color: #ffffff;
+    color: #000000;
+}
+ion-item{
+    --background: #ffffff;
+}

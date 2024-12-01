@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button fill="clear" slot="start" shape="round" routerLink="/tabs/tab4">
+      <i class="fa-solid fa-angles-left fa-xl" slot="icon-only" style="color: #ffffff;"></i>
+    </ion-button>
+    <ion-button slot="start" mode="ios" fill="clear">
+      <ion-img class="profile-pic" src="./assets/profile pics/man_4140061.png"></ion-img>
+        <!-- <ion-img class="profile-pic" *ngIf="user.profilePic" src="{{user.profilePic}}"></ion-img>
+        <ion-img class="profile-pic" *ngIf="!user.profilePic && user.gender === 'MALE'" src="./assets/profile pics/man_4140061.png"></ion-img>
+        <ion-img class="profile-pic" *ngIf="!user.profilePic && user.gender === 'FEMALE'" src="./assets/profile pics/woman_4140047.png"></ion-img> -->
+      <ion-chip color="light">{{user2.firstName}} {{user2.lastName}}</ion-chip>
+    </ion-button>
+    <ion-button slot="end" fill="clear" shape="round">
+      <i class="fa-solid fa-ellipsis fa-xl" slot="icon-only" style="color: #ffffff;"></i>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="chat-area">
+    <div class="text-1"  *ngFor="let message of messagesList" [ngClass]="{'left': message.message_side === 'reciever', 'right': message.message_side === 'sender'}">
+      <p class="chat-text">
+        <!-- {{message}} -->
+        {{message.content}}
+      </p>
+    </div>
+  </div>
+</ion-content>
+
+<div class="chat-bar">
+  <ion-item lines="none">
+    <ion-button shape="round" fill="clear">
+      <ion-icon class="attach typing-bar-icon" name="attach"></ion-icon>
+    </ion-button>
+    <ion-input placeholder="type something..." [(ngModel)]="chatInput"></ion-input>
+    <ion-button shape="round" fill="clear" (click)="sendChatMessage()">
+      <ion-icon class="typing-bar-icon" name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</div>

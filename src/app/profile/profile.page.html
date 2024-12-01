@@ -1,0 +1,130 @@
+<ion-content [fullscreen]="true" fixed-slot-placement="before">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-button fill="clear" slot="start" shape="round" routerLink="/tabs/tab1">
+        <i class="fa-solid fa-angle-left fa-xl" slot="icon-only" style="color: #ffffff;"></i>
+      </ion-button>
+      <div slot="end">
+        <!-- <ion-button class="connects-button" color="danger" shape="round" (click)="openConnectsModal()">
+        </ion-button> -->
+      </div>
+    </ion-toolbar>
+    <ion-toolbar>
+      <div class="profile-data">
+        <div class="profile-image">
+          <ion-img src="assets/profile pics/man_4140061.png" alt=""></ion-img>
+        </div>
+        <ion-title mode="ios" class="profile-title">
+          <div class="profile-name-container">
+            <h3 class="profile-name">Dileep Varma</h3>
+          </div>
+          <div class="bio-text">
+            <p class="bio-text">bio... Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dicta officia
+              animi commodi
+              voluptate harum minus nemo, accusantium nobis tenetur eum nam repellendus odit in repudiandae, iure
+              quaerat
+              inventore delectus.</p>
+          </div>
+        </ion-title>
+      </div>
+    </ion-toolbar>
+    <ion-toolbar class="social-media-buttons-list">
+      <ion-grid>
+        <ion-row class="social-media-buttons-row">
+          <ion-card class="connects-card" color="danger" (click)="openConnectsModal()">
+            <ion-item color="danger">
+              <ion-label>Connections</ion-label>
+              <ion-badge color="transparent">{{connectsCount}}<ion-icon name="heart"></ion-icon></ion-badge>
+            </ion-item>
+          </ion-card>
+        </ion-row>
+        <ion-row class="social-media-buttons-row">
+          <ion-col size="auto">
+            <ion-button class="social-media-buttons" shape="round">
+              <i class="fa-regular fa-envelope fa-xl" slot="icon-only"></i>
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button class="social-media-buttons" shape="round">
+              <i class="fa-brands fa-facebook-f fa-xl" slot="icon-only"></i>
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button class="social-media-buttons" shape="round">
+              <i class="fa-brands fa-instagram fa-xl" slot="icon-only"></i>
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button class="social-media-buttons" shape="round">
+              <i class="fa-regular fa-comment fa-xl" slot="icon-only"></i>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let collection of collections">
+        <ion-card routerLink="/collection/{{collection.id}}">
+          <swiper-container>
+            <swiper-slide *ngFor="let file of collection.files">
+              <img class="card-image" src="{{baseUrl}}{{file.fileUrl}}" alt="">
+            </swiper-slide>
+          </swiper-container>
+
+          <ion-item class="collection-item" lines="none">
+            <div class="card-location card-desc" slot="start">
+              <i class="fa-solid fa-location-dot fa-2xs"></i>
+              <p> {{collection.name}}</p>
+            </div>
+            <div slot="end" class="card-share card-desc">
+              <ion-button fill="clear" color="tertiary" shape="round">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-modal [isOpen]="isConnectsModalOpen" [initialBreakpoint]="1" [breakpoints]="[0, 0.25, 0.5, 0.75,1]"
+    (ionModalDidClose)="closeConnectsModal()" [backdropDismiss]="true">
+    <ng-container>
+      <!-- Modal Template -->
+      <ng-template #searchModal>
+        <ion-header class="connects-header">
+          <ion-toolbar class="connects-toolbar" color="tertiary">
+            <ion-title>{{user.firstName}}'s Connects</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="closeConnectsModal()"><ion-icon name="close"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content color="tertiary">
+          <ion-searchbar placeholder="Search"></ion-searchbar>
+          <ion-list class="connects-item-list">
+            <ion-item class="connects-item" *ngFor="let connect of userConnects">
+              <ion-avatar slot="start">
+                <ion-img *ngIf="connect.profilePic" src="{{connect.profilePic}}"></ion-img>
+                <ion-img *ngIf="!connect.profilePic && connect.gender === 'MALE'"
+                  src="./assets/profile pics/man_4140061.png"></ion-img>
+                <ion-img *ngIf="!connect.profilePic && connect.gender === 'FEMALE'"
+                  src="./assets/profile pics/woman_4140047.png"></ion-img>
+              </ion-avatar>
+              <ion-label>
+                <h2>{{connect.firstName}} {{connect.lastName}}</h2>
+                <p>{{connect.connects.length}} connects</p>
+              </ion-label>
+            </ion-item>
+            <!-- More items here -->
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ng-container>
+  </ion-modal>
+</ion-content>

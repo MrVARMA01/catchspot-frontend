@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-button slot="start" fill="clear">
+    </ion-button> -->
+    <ion-title mode="ios">
+      <ion-chip color="tertiary">Profile</ion-chip>
+    </ion-title>
+    <ion-button fill="clear" slot="end" shape="round" routerLink="/scan">
+      <i class="fa-solid fa-qrcode fa-lg" slot="icon-only" style="color: #6030ff;"></i>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item class="profile-item">
+    <ion-thumbnail slot="start">   
+      <ion-img class="profile-img" src="./assets/profile pics/man_4140061.png"></ion-img>   
+      <!-- <ion-img class="profile-pic" *ngIf="!user.profilePic && user.gender === 'MALE'" src="./assets/profile pics/man_4140061.png"></ion-img>
+      <ion-img class="profile-pic" *ngIf="!user.profilePic && user.gender === 'FEMALE'" src="./assets/profile pics/woman_4140047.png"></ion-img>
+      <ion-img class="profile-pic" *ngIf="user.profilePic" src="{{user.profilePic}}"></ion-img> -->
+    </ion-thumbnail>
+    <ion-grid>
+      <ion-row>
+        <ion-label color="tertiary"><b>Dileep Varma</b></ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-label color="medium">
+          <p>rdileep01<ion-icon name="at-outline"></ion-icon>gmail.com</p>
+        </ion-label>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <br>
+  <ion-list [inset]="true">
+    <ion-list-header>
+      <ion-label color="tertiary">Personalisation</ion-label>
+    </ion-list-header>
+    <div class="list-items">
+      <ion-item lines="none">
+        <i class="fa-regular fa-user"></i>
+        <ion-label>Edit Profile</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <i class="fa-regular fa-bell"></i>
+        <ion-label>Notifications</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <i class="fa-regular fa-moon"></i>
+        <ion-label>Mode</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-list [inset]="true">
+    <ion-list-header>
+      <ion-label color="tertiary">Settings</ion-label>
+    </ion-list-header>
+    <div class="list-items">
+      <ion-item lines="none">
+        <i class="fa-solid fa-user-shield"></i>
+        <ion-label>Account privacy</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <i class="fa-solid fa-server"></i>
+        <ion-label>Data permissions</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-list [inset]="true">
+    <ion-list-header>
+      <ion-label color="tertiary">Support</ion-label>
+    </ion-list-header>
+    <div class="list-items">
+      <ion-item lines="none">
+        <i class="fa-regular fa-circle-question"></i>
+        <ion-label>Help</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <i class="fa-solid fa-shield-halved"></i>
+        <ion-label>Privacy center</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-list [inset]="true">
+    <div class="list-items logout-section">
+      <ion-item (click)="logout()">
+        <ion-label color="tertiary">Logout <ion-icon name="log-out"></ion-icon></ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

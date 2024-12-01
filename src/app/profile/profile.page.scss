@@ -1,0 +1,244 @@
+ion-header {
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+    box-shadow: none;
+    background: url("/assets/backgrounds/2792.jpg");
+    background-size: cover;
+    /* Ensures the image covers the entire header */
+    background-position: center;
+    /* Centers the image within the header */
+    background-repeat: no-repeat;
+}
+
+ion-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust opacity here */
+    z-index: 1;
+}
+
+ion-toolbar {
+    vertical-align: center;
+    --background: transparent;
+    color: #000;
+}
+
+ion-content {
+    --background: #d7cbff !important;
+}
+
+.profile-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 1rem;
+    /* Add padding to provide more breathing room */
+    overflow: visible;
+    /* Ensures content isn't clipped */
+}
+
+.profile-title {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    /* Prevents clipping */
+}
+
+.profile-title div {
+    max-height: unset;
+    /* Remove any implicit height limits */
+}
+
+.bio-text {
+    color: whitesmoke;
+    width: 100%;
+    overflow: visible;
+    /* Allows content to expand */
+    text-align: center;
+    font-weight: 200;
+}
+
+.profile-image ion-img {
+    margin: 0;
+    width: 100px;
+}
+
+h3 {
+    font-weight: 900;
+}
+
+.profile-name-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-name {
+    color: #ffffff;
+}
+
+.connects-card {
+    width: 90%;
+}
+
+.social-media-buttons-row {
+    justify-content: space-around;
+}
+
+.social-media-buttons {
+    --background: #786aa787;
+}
+
+ion-col {
+    text-align: center;
+}
+
+ion-card {
+    border-radius: 2rem;
+    background-color: #d7cbff;
+    // margin-top: -5px;
+}
+
+.collection-item {
+    --background: transparent !important;
+    padding: 0 !important;
+    width: 100%;
+    margin-top: -20px;
+}
+
+ion-card-header {
+    margin: 0;
+    padding: 0px 10px;
+    --background: transparent !important;
+}
+
+.card-location {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+p {
+    text-align: start;
+    color: #595959;
+    font-size: x-small !important;
+    margin: 0px 5px !important;
+}
+
+.fa-location-dot {
+    color: #595959;
+    margin-left: 2px;
+}
+
+.card-desc {
+    margin-top: 15px;
+    opacity: 0.7;
+}
+
+@media screen and (max:375px) {
+    .card-share {
+        transform: translateX(-50px) !important;
+        --background: #ff0000;
+    }
+}
+
+ion-button {
+    padding: 0 !important;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+.add-card {
+    background-color: #59595953;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-card-text {
+    margin-top: 10px !important;
+}
+
+ion-col p {
+    font-size: smaller;
+    padding: 0 !important;
+
+}
+
+::ng-deep .swiper-pagination-bullet {
+    background-color: #000 !important;
+    /* Change this to your desired dot color */
+}
+
+::ng-deep .swiper-pagination-bullet-active {
+    background-color: #ff0000 !important;
+    /* Change this to your desired active dot color */
+}
+
+#upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    --background: #d7cbff;
+}
+
+.upload-icon {
+    font-size: 50px;
+}
+
+ion-list {
+    background-color: transparent !important;
+}
+
+.connects-toolbar,
+.connects-header {
+    border-radius: 0 !important;
+    color: #fff;
+}
+
+ion-searchbar {
+    --border-radius: 30px;
+    /* Adjust this value for the desired roundness */
+    --background: #fff;
+    overflow: hidden;
+    /* Optional: background color */
+}
+
+ion-searchbar .searchbar-input {
+    border-radius: 30px;
+    /* Round the input field itself */
+}
+
+.-item-list {
+    background-color: #d7cbff;
+}
+
+.connects-item {
+    margin: 10px;
+    --background: #ffffff !important;
+    display: flex;
+    border-radius: 1rem;
+}
+
+ion-label h2 {
+    color: #6030ff;
+}

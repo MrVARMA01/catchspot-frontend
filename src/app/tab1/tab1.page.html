@@ -1,17 +1,203 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content [fullscreen]="true" fixed-slot-placement="before">
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-button class="toolbar-profile-button" slot="start" fill="clear" shape="round">
+        <ion-img class="profile-img" slot="icon-only" src="./assets/profile pics/man_4140061.png"></ion-img>
+        <!-- <ion-img class="profile-img" *ngIf="user.profilePic" src="{{user.profilePic}}"></ion-img>
+        <ion-img class="profile-img" *ngIf="!user.profilePic && user.gender === 'MALE'"
+          src="./assets/profile pics/man_4140061.png"></ion-img>
+        <ion-img class="profile-img" *ngIf="!user.profilePic && user.gender === 'FEMALE'"
+          src="./assets/profile pics/woman_4140047.png"></ion-img> -->
+      </ion-button>
+      <ion-title mode="ios">
+        <!-- <ion-chip [outline]="true" color="tertiary">Collections</ion-chip> -->
+        <ion-chip [outline]="true">
+          <ion-segment value="default">
+            <ion-segment-button value="default">
+              <ion-label>Collections</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="segment">
+              <ion-label>Posts</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-chip>
+      </ion-title>
+      <div slot="end">
+        <ion-button class="toolbar-button" fill="clear" shape="round" (click)="openConnectsModal()">
+          <ion-icon name="notifications" color="tertiary"></ion-icon>
+        </ion-button>
+        <!-- <ion-button class="toolbar-button" fill="clear" shape="round" (click)="logout()">
+          <i class="fa-solid fa-qrcode fa-lg" slot="icon-only" style="color: #6030ff;"></i>
+        </ion-button> -->
+      </div>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <div>
+    <ion-card color="danger" (click)="openConnectsModal()">
+      <ion-item color="danger">
+        <ion-label>Connections</ion-label>
+        <ion-badge color="transparent">{{connectsCount}}<ion-icon name="heart"></ion-icon></ion-badge>
+      </ion-item>
+    </ion-card>
+  </div> -->
+  <ion-grid>
+    <ion-row *ngIf="collections">
+      <ion-col size="6" *ngFor="let collection of collections">
+        <ion-card routerLink="/collection/{{collection.id}}">
+          <swiper-container>
+            <swiper-slide *ngFor="let file of collection.files">
+              <img class="card-image" src="{{baseUrl}}{{file.fileUrl}}" alt="">
+            </swiper-slide>
+          </swiper-container>
+
+          <ion-item class="collection-item" lines="none">
+            <div class="card-location card-desc" slot="start">
+              <i class="fa-solid fa-location-dot fa-2xs"></i>
+              <p> {{collection.name}}</p>
+            </div>
+            <div slot="end" class="card-share card-desc">
+              <ion-button fill="clear" color="tertiary" shape="round">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!collections">
+      <ion-col size="6">
+        <ion-card routerLink="" (click)="setNewCollectionOpen(true)">
+          <div class="add-card">
+            <ion-button shape="round" color="tertiary">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+            <p class="add-card-text">Add New Collection</p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="collections">
+    <ion-fab-button color="tertiary" size="small" id="open-modal" (click)="setNewCollectionOpen(true)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal class="newCollectionModal" [isOpen]="isNewCollectionModalOpen">
+    <ng-template color="light">
+      <ion-header class="new-collection-header" color="tertiary">
+        <ion-toolbar class="new-collection-toolbar" color="tertiary">
+          <ion-title color="light">New Collection</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setNewCollectionOpen(false)"><ion-icon name="close"
+                color="light"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="tertiary" style="overflow: hidden;">
+        <ion-list>
+          <ion-item class="new-collection-item">
+            <ion-input class="new-collection-input" aria-label="Tertiary input" color="light"
+              placeholder="Collection Name" [(ngModel)]="collectionName"></ion-input>
+          </ion-item>
+          <ion-item color="tertiary" class="new-collection-item" lines="none">
+            <!-- Container to display selected images with delete button -->
+            <div class="upload-images-grid">
+              <div class="upload-images-grid-images-image" *ngFor="let imageUrl of imageUrls; let i = index">
+                <ion-img class="upload-image" [src]="imageUrl"></ion-img>
+                <ion-button color="danger" shape="round" (click)="removeImage(i)" fill="clear" size="small">
+                  <ion-icon name="close-circle"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <div class="new-collection-buttons">
+        <ion-button class="new-collection-button upload-buttton" color="tertiary" shape="round"
+          (click)="fileUpload.click()">
+          <ion-icon name="images" size="large"></ion-icon><ion-icon name="add"></ion-icon>
+        </ion-button>
+        <div style="display: none;">
+          <!-- Allow multiple file uploads by adding 'multiple' to the input -->
+          <input #fileUpload type="file" multiple (change)="uploadFiles($event)">
+        </div>
+        <ion-button class="new-collection-button" color="success" shape="round" (click)="newCollection()"><ion-icon
+            name="checkmark" color="light" size="large"></ion-icon></ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+
+  <ion-modal [isOpen]="isConnectsModalOpen" [initialBreakpoint]="1" [breakpoints]="[0, 0.25, 0.5, 0.75,1]"
+    (ionModalDidClose)="closeConnectsModal()" [backdropDismiss]="true">
+    <ng-container>
+      <ng-template #searchModal>
+        <ion-header class="ConnectsModal-header">
+          <ion-toolbar class="ConnectsModal-toolbar">
+            <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+              <ion-segment-button value="connects">
+                <ion-label color="light" class="lowercase">Connects</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="requests">
+                <ion-label color="light" class="lowercase">Requests</ion-label>
+              </ion-segment-button>
+            </ion-segment>
+            <ion-buttons slot="end">
+              <ion-button (click)="closeConnectsModal()"><ion-icon name="close" color="light"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ConnectsModalContent">
+          <div *ngIf="selectedSegment === 'connects'">
+            <ion-searchbar placeholder="Search"></ion-searchbar>
+            <ion-list class="ConnectsModal-item-list">
+              <ion-item class="ConnectsModal-item" *ngFor="let connect of userConnects">
+                <ion-avatar slot="start">
+                  <ion-img *ngIf="connect.profilePic" src="{{connect.profilePic}}"></ion-img>
+                  <ion-img *ngIf="!connect.profilePic && connect.gender === 'MALE'"
+                    src="./assets/profile pics/man_4140061.png"></ion-img>
+                  <ion-img *ngIf="!connect.profilePic && connect.gender === 'FEMALE'"
+                    src="./assets/profile pics/woman_4140047.png"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h2>{{connect.firstName}} {{connect.lastName}}</h2>
+                  <p>{{connect.connects.length}} connects</p>
+                </ion-label>
+                <ion-button class="connect-button" color="tertiary" shape="round">
+                  <h6 class="lowercase">disconnect</h6>
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </div>
+          <div *ngIf="selectedSegment === 'requests'">
+            <ion-searchbar placeholder="Search"></ion-searchbar>
+            <ion-list class="ConnectsModal-item-list">
+              <ion-item class="ConnectsModal-item" *ngFor="let requestedUser of userConnectRequests">
+                <ion-avatar slot="start">
+                  <ion-img *ngIf="requestedUser.profilePic" src="{{requestedUser.profilePic}}"></ion-img>
+                  <ion-img *ngIf="!requestedUser.profilePic && requestedUser.gender === 'MALE'"
+                    src="./assets/profile pics/man_4140061.png"></ion-img>
+                  <ion-img *ngIf="!requestedUser.profilePic && requestedUser.gender === 'FEMALE'"
+                    src="./assets/profile pics/woman_4140047.png"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h2>{{requestedUser.firstName}} {{requestedUser.lastName}}</h2>
+                  <p>{{requestedUser.connects.length}} connects</p>
+                </ion-label>
+                <ion-button class="connect-button" color="success" shape="round"
+                  (click)="acceptConnectRequest(requestedUser.userId)">
+                  <h6 class="lowercase">connect</h6>
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ng-container>
+  </ion-modal>
+
 </ion-content>

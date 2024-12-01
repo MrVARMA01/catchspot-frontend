@@ -1,0 +1,55 @@
+.content {
+    --background: #d7cbff !important;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+ion-item {
+    --inner-padding-start: 0; /* Remove internal padding on the start */
+    --inner-padding-end: 0; /* Remove internal padding on the end */
+    --padding-start: 0; /* Remove external padding on the start */
+    --padding-end: 0; /* Remove external padding on the end */
+    --background: transparent; /* Optional: Match background */
+    margin: 0 !important; /* Remove external margin */
+    padding: 0 !important; /* Remove internal padding */
+    width: 100%; /* Ensure it spans the full width */
+}
+.ratings-card{
+    --background: #d7cbff !important; /* Match background color */
+    box-shadow: none;
+}
+.detail-card {
+    width: 95%; /* Use 100vw to ensure full viewport width */
+    margin: 3%; /* Remove any margin applied by Ionic */
+    padding: 0; /* Remove any padding applied by Ionic */
+    border-radius: 0; /* Remove rounded corners */
+    box-shadow: none; /* Remove any shadow */
+    --background: #ffffff !important; /* Match background color */
+    border-radius: 1rem;
+}
+.prev-image {
+    position: relative; /* Parent container for absolute positioning */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    margin: 0;
+    padding: 0;
+    display: block;
+    border-radius: 0 0 2rem 2rem;
+}
+.back-button {
+    position: absolute; /* Position relative to .prev-image */
+    top: 10px; /* Adjust the vertical position */
+    left: 10px; /* Adjust the horizontal position */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+.rating{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.rating .star{
+    margin: 8px;
+}

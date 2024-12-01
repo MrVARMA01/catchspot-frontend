@@ -1,0 +1,115 @@
+ion-header {
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+    --background: transparent;
+    box-shadow: none;
+}
+ion-toolbar {
+    vertical-align: center;
+    --background: transparent;
+    color: #000;
+}
+ion-chip{
+    border: 0;
+}
+ion-content {
+    --background: #d7cbff !important;
+}
+.images-grid{
+    column-count: 2;
+    padding: 5%;
+}
+.gallery-image{
+    border-radius: 1rem;
+    margin: 2px;
+    height: 100%;
+}
+// .images-grid {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 10px;
+// }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #d7cbff; /* Dark background with transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.prev-Image img {
+    position: relative;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    // background-color: #d7cbff; /* White background for the image container */
+    border-radius: 2rem !important;
+}
+
+.prev-Image img {
+    max-width: 90vw;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.new-files-toolbar, .new-files-header,.rename-header,.rename-toolbar{
+    border-radius: 0 !important;
+}
+.new-files-list, .rename-list{
+    background-color: #6030ff !important;
+}
+.new-files-item, .rename-item{
+    border-radius: 1rem !important;
+    overflow: hidden;
+}
+.new-files-buttons, .rename-buttons{
+    display: flex; 
+    background-color: #6030ff !important;
+    width: 100%;
+}
+.rename-buttons{
+    justify-content: end;
+}
+.rename-button{
+    margin: 5px 10px;
+}
+.renameModal{
+    --height: 35%;
+    --border-radius: 16px;
+    background-color: #d7cbffd3; /* Dark background with transparency */
+    // --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 10px;
+}
+.new-files-button{
+    margin: 5px;  
+    width: 100%;
+}
+.new-files-buttons .upload-buttton{
+    border: 2px solid #ffffff;
+    border-radius: 2rem;
+}
+.newFilesModal{
+    --height: 50%;
+    --border-radius: 16px;
+    background-color: #d7cbffd3; /* Dark background with transparency */
+    // --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 10px;
+}
+ion-card {
+    border-radius: 2rem;
+    background-color: #d7cbff;
+}
+
+ion-col {
+    text-align: center;
+}
+.fab-button{
+    transform: translateY(-25px);
+}

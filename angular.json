@@ -17,6 +17,7 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
+            "allowedCommonJsDependencies": ["sockjs-client"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -136,7 +137,8 @@
   "cli": {
     "schematicCollections": [
       "@ionic/angular-toolkit"
-    ]
+    ],
+    "analytics": "31d27801-33c7-4676-9305-539ff037b99b"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

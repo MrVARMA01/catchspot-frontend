@@ -1,0 +1,242 @@
+ion-header {
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+    --background: transparent;
+    box-shadow: none;
+}
+
+ion-toolbar {
+    vertical-align: center;
+    --background: transparent;
+    color: #000;
+}
+.toolbar-profile-button{
+margin: 0 15px;
+}
+.profile-img{
+    width: 40px;
+}
+ion-content {
+    --background: #d7cbff !important;
+}
+
+ion-col {
+    text-align: center;
+}
+
+ion-card {
+    border-radius: 2rem;
+    background-color: #d7cbff;
+}
+
+.collection-item {
+    --background: transparent !important;
+    padding: 0 !important;
+    width: 100%;
+    margin-top: -20px;
+}
+
+ion-card-header {
+    margin: 0;
+    padding: 0px 10px;
+    --background: transparent !important;
+}
+
+.card-location {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+p {
+    text-align: start;
+    color: #595959;
+    font-size: x-small !important;
+    margin: 0px 5px !important;
+}
+
+.fa-location-dot {
+    color: #595959;
+    margin-left: 2px;
+}
+
+.card-desc {
+    margin-top: 15px;
+    opacity: 0.7;
+}
+
+@media screen and (max:375px) {
+    .card-share {
+        transform: translateX(-50px) !important;
+        --background: #ff0000;
+    }
+}
+
+ion-button {
+    padding: 0 !important;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+.add-card {
+    background-color: #59595953;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-card-text {
+    margin-top: 10px !important;
+}
+
+ion-col p {
+    font-size: smaller;
+    padding: 0 !important;
+
+}
+
+::ng-deep .swiper-pagination-bullet {
+    background-color: #000 !important;
+    /* Change this to your desired dot color */
+}
+
+::ng-deep .swiper-pagination-bullet-active {
+    background-color: #ff0000 !important;
+    /* Change this to your desired active dot color */
+}
+
+#upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    --background: #d7cbff;
+}
+
+.upload-icon {
+    font-size: 50px;
+}
+
+ion-list {
+    background-color: transparent !important;
+}
+
+.new-collection-toolbar, .new-collection-header{
+    border-radius: 0 !important;
+}
+.new-collection-item{
+    border-radius: 1rem !important;
+    overflow: hidden;
+}
+.new-collection-buttons{
+    display: flex; 
+    background-color: #6030ff !important;
+}
+.new-collection-button{
+    margin: 5px;  
+    width: 100%;
+}
+.new-collection-buttons .upload-buttton{
+    box-shadow: 0 !important;
+    border-radius: 2rem;
+    border: solid 2px #ffffff;
+}
+.newCollectionModal {
+    --height: 50%;
+    --border-radius: 16px;
+    background-color: #d7cbffd3; /* Dark background with transparency */
+    // --box-shadow: 0 10px 50px -3px rgb(0 0 0 / 1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 10px;
+}
+.upload-images-grid{
+    column-count: 2;
+    padding: 5%;
+}
+.upload-images-grid-images-image{
+    border-radius: 1rem !important;
+    overflow: hidden;
+    margin: 15px 0 !important;
+    background-color: #6030ff;
+    position: relative;
+}
+
+.upload-images-grid-images-image ion-button {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    right: 0; /* Adjust as needed */
+    transform: translateY(15px) !important;
+    transform: translateX(5px) !important;
+    z-index: 10;
+}
+.upload-image{
+    border-radius: 1rem;
+    margin: 2px;
+    height: 100%;
+}
+ion-modal::part(backdrop) {
+    background: rgb(135, 135, 135);
+}
+
+.newCollectionModal ion-toolbar {
+    --color: white;
+}
+.new-collection-item {
+    margin: 5px;
+}
+
+
+.ConnectsModal-toolbar, .ConnectsModal-header{
+    border-radius: 0 !important;
+    --background:#D90004;
+}
+.ConnectsModalContent{
+    --background:#D90004 !important;
+}
+.ConnectsModal-item-list {
+    background-color: #d7cbff;
+}
+ion-searchbar {
+    --border-radius: 30px;
+    /* Adjust this value for the desired roundness */
+    --background: #fff;
+    overflow: hidden;
+    /* Optional: background color */
+}
+ion-searchbar .searchbar-input {
+    border-radius: 30px;
+    /* Round the input field itself */
+}
+.ConnectsModal-item {
+    margin: 10px;
+    --background: #ffffff !important;
+    display: flex;
+    border-radius: 1rem;
+}
+ion-label h2{
+    color: #6030ff;
+}
+.connect-button{
+    height: 50%;
+    width: 40%;
+}
+.connect-button h6{
+    color: #ffffff !important;
+    font-size: smaller;
+    font-weight: 500;
+}
+.lowercase{
+    text-transform: lowercase;
+}
+ion-chip {
+    border: 0;
+  }

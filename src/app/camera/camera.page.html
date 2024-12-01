@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Live Camera with Filters</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="video-container">
+    <video
+      #videoElement
+      autoplay
+      [ngClass]="currentFilter"
+      class="video-feed"
+    ></video>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="applyFilter('')">No Filter</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="applyFilter('grayscale')">Grayscale</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="applyFilter('sepia')">Sepia</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="full" (click)="startCamera()">Start Camera</ion-button>
+  <ion-button expand="full" color="danger" (click)="stopCamera()">Stop Camera</ion-button>
+</ion-content>

@@ -1,0 +1,75 @@
+ion-header,
+ion-toolbar {
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+    --background: #6030ff;
+    box-shadow: none;
+}
+
+.profile-pic {
+    border-radius: 5rem;
+    width: 30px;
+}
+
+ion-content {
+    --background: #d7cbff !important;
+    height: 100%;
+}
+
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .text-1 {
+    display: flex;
+    margin-bottom: 10px;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  
+  .text-1.left {
+    align-self: flex-start;
+    background-color: #565656;
+    color: #ffffff;
+    border-top-left-radius: 0;
+  }
+  
+  .text-1.right {
+    align-self: flex-end;
+    background-color: #d000f0;
+    color: #fff;
+    border-top-right-radius: 0;
+  }
+  
+  .chat-text {
+    margin: 0;
+    word-wrap: break-word;
+  }
+  
+  .chat-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 2rem !important;
+    padding: 5px;  
+  }
+  
+
+.typing-bar-icon {
+    color: #6030ff;
+    font-size: 20px;
+}
+
+ion-item {
+    --background: transparent;
+    color: #000;
+}

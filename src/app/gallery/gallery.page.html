@@ -1,0 +1,121 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button fill="clear" slot="start" shape="round" routerLink="/tabs/tab1">
+      <i class="fa-solid fa-angle-left fa-xl" slot="icon-only" style="color: #6030ff;"></i>
+      <!-- <i class="fa-solid fa-angles-left fa-xl" slot="icon-only" style="color: #6030ff;"></i> -->
+    </ion-button>
+    <ion-title mode="ios">
+      <ion-chip [outline]="true" (click)="setRenameModalOpen(true)" color="tertiary">{{collectionName}}</ion-chip>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-fab class="fab-button" slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button size="small" color="tertiary">
+      <ion-icon name="chevron-down-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button>
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> -->
+
+  <div class="images-grid">
+    <div class="images-image" *ngFor="let file of files; let i=index;">
+      <img (click)="routeToPrevImage(file.id)" class="gallery-image" src="{{baseUrl}}{{file.fileUrl}}" alt="">
+    </div>
+  </div>
+
+  <!-- Overlay container for the preview image -->
+  <!-- <div class="overlay" *ngIf="prevImage" (click)="prevImage = null">
+    <div class="prev-Image">
+      <img class="gallery-image" src="{{baseUrl}}{{prevImage.fileUrl}}" alt="">
+    </div>
+  </div> -->
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="tertiary" size="small" (click)="setNewFilesOpen(true)" expand="block">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+  <!--     ---------------------   MODELS     ---------------------   -->
+
+  <ion-modal class="renameModal" [isOpen]="isRenameModalOpen">
+    <ng-template color="light">
+      <ion-header class="rename-header" color="tertiary">
+        <ion-toolbar class="rename-toolbar" color="tertiary">
+          <ion-title color="light">Rename Collection</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setRenameModalOpen(false)"><ion-icon name="close"
+                color="light"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="tertiary" style="overflow: hidden;">
+        <ion-list class="rename-list">
+          <ion-item class="rename-item">
+            <ion-input class="rename-input" aria-label="Tertiary input" color="tertiary" placeholder="Collection Name"
+              [(ngModel)]="collectionName"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <div class="rename-buttons">
+        <ion-button class="rename-button" color="success" shape="round"
+          (click)="renameCollection()">Rename</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal class="newFilesModal" [isOpen]="isNewFilesModalOpen">
+    <ng-template color="light">
+      <ion-header class="new-files-header" color="tertiary">
+        <ion-toolbar class="new-files-toolbar" color="tertiary">
+          <ion-title color="light">Add Files</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setNewFilesOpen(false)"><ion-icon name="close" color="light"></ion-icon></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" color="tertiary" style="overflow: hidden;">
+        <ion-list class="new-files-list">
+          <ion-item color="tertiary" class="new-files-item" lines="none">
+            <!-- Container to display selected images with delete button -->
+            <ion-row>
+              <ion-col *ngFor="let imageUrl of imageUrls; let i = index" size="6">
+                <ion-card>
+                  <ion-img [src]="imageUrl"></ion-img>
+                  <ion-button color="danger" (click)="removeImage(i)" fill="clear" size="small">
+                    <ion-icon name="trash"></ion-icon>
+                  </ion-button>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <div class="new-files-buttons">
+        <ion-button class="new-files-button upload-buttton" color="tertiary" shape="round" (click)="fileUpload.click()">
+          <ion-icon name="images" size="large"></ion-icon><ion-icon name="add"></ion-icon>
+        </ion-button>
+        <div style="display: none;">
+          <!-- Allow multiple file uploads by adding 'multiple' to the input -->
+          <input #fileUpload type="file" multiple (change)="uploadFiles($event)">
+        </div>
+        <ion-button class="new-files-button" color="success" shape="round"
+          (click)="uploadToCollection()">Add</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

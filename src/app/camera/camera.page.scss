@@ -1,0 +1,22 @@
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video-feed {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Filter classes */
+  .grayscale {
+    filter: grayscale(100%);
+  }
+  
+  .sepia {
+    filter: sepia(100%);
+  }
+  
+  /* Add more filters as desired */
+  
