@@ -10,9 +10,7 @@
           src="./assets/profile pics/woman_4140047.png"></ion-img> -->
       </ion-button>
       <ion-title mode="ios">
-        <!-- <ion-chip [outline]="true" color="tertiary">Collections</ion-chip> -->
-        <ion-chip [outline]="true">
-          <ion-segment value="default">
+          <ion-segment value="default" style="box-shadow: inset 0px 2px 4px rgba(128, 128, 128, 0.5);">
             <ion-segment-button value="default">
               <ion-label>Collections</ion-label>
             </ion-segment-button>
@@ -20,11 +18,10 @@
               <ion-label>Posts</ion-label>
             </ion-segment-button>
           </ion-segment>
-        </ion-chip>
       </ion-title>
       <div slot="end">
         <ion-button class="toolbar-button" fill="clear" shape="round" (click)="openConnectsModal()">
-          <ion-icon name="notifications" color="tertiary"></ion-icon>
+          <ion-icon name="notifications" color="tertiary" style="filter: drop-shadow(0px 2px 4px #0000004a); padding: 0;"></ion-icon>
         </ion-button>
         <!-- <ion-button class="toolbar-button" fill="clear" shape="round" (click)="logout()">
           <i class="fa-solid fa-qrcode fa-lg" slot="icon-only" style="color: #6030ff;"></i>
@@ -80,7 +77,7 @@
   </ion-grid>
 
 
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="collections">
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="collections" style="filter: drop-shadow(0px 2px 4px #0000004a); padding: 0;">
     <ion-fab-button color="tertiary" size="small" id="open-modal" (click)="setNewCollectionOpen(true)">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

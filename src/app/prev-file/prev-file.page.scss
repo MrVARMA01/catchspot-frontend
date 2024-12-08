@@ -17,33 +17,60 @@ ion-item {
     padding: 0 !important; /* Remove internal padding */
     width: 100%; /* Ensure it spans the full width */
 }
-.ratings-card{
-    --background: #d7cbff !important; /* Match background color */
-    box-shadow: none;
-}
-.detail-card {
-    width: 95%; /* Use 100vw to ensure full viewport width */
-    margin: 3%; /* Remove any margin applied by Ionic */
-    padding: 0; /* Remove any padding applied by Ionic */
-    border-radius: 0; /* Remove rounded corners */
-    box-shadow: none; /* Remove any shadow */
-    --background: #ffffff !important; /* Match background color */
-    border-radius: 1rem;
-}
-.prev-image {
-    position: relative; /* Parent container for absolute positioning */
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    margin: 0;
-    padding: 0;
-    display: block;
-    border-radius: 0 0 2rem 2rem;
-}
+
 .back-button {
     position: absolute; /* Position relative to .prev-image */
     top: 10px; /* Adjust the vertical position */
     left: 10px; /* Adjust the horizontal position */
     z-index: 10; /* Ensure it appears above other elements */
+}
+.prev-image {
+    position: absolute; /* Parent container for absolute positioning */
+    width: 100%;
+    height: 100%; /* Maintain aspect ratio */
+    margin: 0;
+    padding: 0;
+    display: block;
+    border-radius: 0 0 2rem 2rem;
+    object-fit: cover;
+}
+ion-grid{
+    bottom: 0;
+    width: 100%;
+}
+ion-row,ion-col{
+    margin: 0;
+    padding: 0;
+}
+.location-card , .ratings-card{
+    height: 130px;
+    width: 95%;/* Remove any padding applied by Ionic */
+    --background: #ffffffad !important; /* Match background color */
+    border-radius: 1.5rem;
+}
+.detail-card{
+    --background: #ffffffad !important; /* Match background color */
+    border-radius: 1.5rem;
+    transform: translateY(-10px);
+}
+ion-card-title{
+    color: #6030ff;
+    font-size: small;
+    font-weight: bolder;
+}
+ion-card-content,ion-list{
+    background-color: transparent !important; /* Match background color */
+}
+ion-item{
+    border-radius: .5rem;
+    margin-bottom: 10px !important;
+    background-color: #ffffff;
+}
+ion-label, ion-select{
+    padding: 0 20px;
+}
+.ratings-content{
+    transform: translateY(-12px);
 }
 .rating{
     justify-content: center;
@@ -51,5 +78,44 @@ ion-item {
     display: flex;
 }
 .rating .star{
-    margin: 8px;
+    margin: 5px;
+}
+.rated-user-image{
+    width: 20px;
+    margin: 5px;
+    border-radius: 5rem;
+    box-shadow: 0px 4px 4px #0000004a;
+}
+.star{
+    border-radius: 5rem;
+    padding: 9px 2px !important;
+    box-shadow: 0px 4px 4px #0000004a;
+}
+#red-star{
+    color: #D90004;
+    background-color: #d900043f;
+}
+#yellow-star{
+    color: #FFD400;
+    background-color: #FFD4003f;
+}
+#blue-star{
+    color: #6030ff;
+    background-color: #6030ff3f;
+}
+ion-toggle{
+    margin-right: 20px;
+}
+ion-select::part(placeholder) {
+    color: #6030ff !important;
+    font-size: small;
+    font-weight: bolder;
+}
+ion-select.custom-selector::part(icon) {
+    color: #6030ff;
+}
+.access-count{
+    background-color: #6030ff;
+    margin-right: 10px;
+    border-radius: 5rem;
 }

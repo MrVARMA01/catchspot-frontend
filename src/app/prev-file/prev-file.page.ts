@@ -14,20 +14,9 @@ export class PrevFilePage implements OnInit {
   fileId:any;
   prevFile:any;
   progress = 0;
+  post=false;
 
-  constructor(private apiService:ApiService, private route:ActivatedRoute) {
-    setInterval(() => {
-      this.progress += 0.01;
-
-      // Reset the progress bar when it reaches 100%
-      // to continuously show the demo
-      if (this.progress > 1) {
-        setTimeout(() => {
-          this.progress = 0;
-        }, 1000);
-      }
-    }, 50);
-  }
+  constructor(private apiService:ApiService, private route:ActivatedRoute) {}
    
   ngOnInit() {
     this.fileId = this.route.snapshot.paramMap.get('id');
@@ -38,9 +27,19 @@ export class PrevFilePage implements OnInit {
     this.apiService.getFile(id).subscribe(
       (response:any)=>{
         this.prevFile=response;
+        this.post=this.prevFile.post;
       },
       (error:any)=>{console.error(error);
       }
     );
+  }
+
+  postToggle(){
+    if (this.post === true){
+      this.post = false;
+    }
+    else if(this.post === false){
+      this.post = true;
+    }
   }
 }
